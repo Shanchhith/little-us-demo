@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f6f2ec">
+    <title>little us — just for two</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="data:,">
+    <meta name="robots" content="noindex">
+    <script src="mock.js"></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="demo-banner">Design preview only — sample content and placeholder images. Nothing you add here is saved or private.</div>
+    <main id="login-view" class="login-view">
+      <section class="login-card">
+        <div class="brand-mark" aria-hidden="true">u<span>+</span></div>
+        <p class="eyebrow">A LITTLE PLACE FOR TWO</p>
+        <h1>Just us, <em>in here.</em></h1>
+        <p class="login-copy">A private corner for our memories, little notes, and plans together.</p>
+        <form id="login-form">
+          <label for="password">Our shared password <span class="optional">(demo: type anything)</span></label>
+          <input id="password" name="password" type="password" autocomplete="current-password" required>
+          <button class="button button-dark full-width" type="submit">Come on in <span aria-hidden="true">→</span></button>
+          <p id="login-error" class="form-error" role="alert"></p>
+        </form>
+        <p class="privacy-note"><span aria-hidden="true">⌑</span> Just between the two of us</p>
+      </section>
+      <p class="login-footer">made with a little extra love</p>
+    </main>
+
+    <div id="app-view" class="app-view" hidden>
+      <header class="topbar">
+        <a class="wordmark" href="/" aria-label="little us home"><span class="brand-mark small">u<span>+</span></span><span>little us</span></a>
+        <div class="topbar-right">
+          <span class="private-badge"><span aria-hidden="true">●</span> our private space</span>
+          <button id="logout-button" class="text-button" type="button">Lock up <span aria-hidden="true">↗</span></button>
+        </div>
+      </header>
+
+      <main class="content">
+        <section class="welcome">
+          <div class="welcome-copy">
+            <p class="eyebrow">A COLLECTION OF US</p>
+            <h1>All the little things<br>that make <em>us.</em></h1>
+            <p class="welcome-description">A place to keep the moments, words, and plans we never want to lose.</p>
+            <button id="new-entry-button" class="button button-dark" type="button">Add a little something <span aria-hidden="true">＋</span></button>
+          </div>
+          <div class="welcome-art" aria-hidden="true">
+            <div class="sun"></div>
+            <div class="art-note"><span>remember</span><strong>the little<br>things</strong><i>♥</i></div>
+            <div class="art-sparkle sparkle-one">✳</div>
+            <div class="art-sparkle sparkle-two">✦</div>
+            <div class="art-orbit"></div>
+          </div>
+        </section>
+
+        <section class="moments-section" aria-labelledby="moments-heading">
+          <div class="section-heading">
+            <div><p class="eyebrow">OUR SHARED SHELF</p><h2 id="moments-heading">Little keepsakes</h2></div>
+            <span id="entry-count" class="entry-count"></span>
+          </div>
+          <nav id="filters" class="filters" aria-label="Filter keepsakes">
+            <button class="filter active" data-filter="all" type="button">Everything</button>
+            <button class="filter" data-filter="memory" type="button">Memories</button>
+            <button class="filter" data-filter="letter" type="button">Little letters</button>
+            <button class="filter" data-filter="checkin" type="button">Check-ins</button>
+            <button class="filter" data-filter="date" type="button">Date ideas</button>
+          </nav>
+          <div id="entry-list" class="entry-list" aria-live="polite"></div>
+          <div id="empty-state" class="empty-state" hidden>
+            <div class="empty-heart" aria-hidden="true">♡</div>
+            <h3>Our shelf is waiting.</h3>
+            <p>Save the first little thing you want to remember.</p>
+            <button class="button button-outline" type="button" data-open-entry>Make a keepsake</button>
+          </div>
+        </section>
+
+        <section class="gallery-section" aria-labelledby="gallery-heading">
+          <div class="section-heading">
+            <div><p class="eyebrow">OUR PRIVATE PHOTO FOLDER</p><h2 id="gallery-heading">The photo nook</h2></div>
+            <span id="photo-count" class="entry-count"></span>
+          </div>
+          <p class="gallery-description">A safe little shelf for every photo you want to share with me.</p>
+          <form id="gallery-upload-form" class="gallery-upload">
+            <label class="upload-label" for="gallery-files">Choose photos from your device</label>
+            <div class="upload-controls">
+              <input id="gallery-files" type="file" accept="image/jpeg,image/png,image/webp" multiple>
+              <input id="gallery-caption" type="text" maxlength="120" placeholder="A little caption (optional)" aria-label="Optional photo caption">
+              <button id="gallery-upload-button" class="button button-dark" type="submit">Add to our folder <span aria-hidden="true">＋</span></button>
+            </div>
+            <p class="photo-hint">JPEG, PNG, or WebP · up to 2 MB each · only visible after signing in</p>
+            <p id="gallery-status" class="gallery-status" role="status"></p>
+          </form>
+          <div id="gallery-list" class="gallery-grid" aria-live="polite"></div>
+          <div id="gallery-empty" class="gallery-empty">
+            <span aria-hidden="true">♡</span>
+            <p>Our private photo folder is ready for its first memory.</p>
+          </div>
+        </section>
+      </main>
+      <footer class="footer">A small place for the big feeling. <span>♥</span></footer>
+    </div>
+
+    <dialog id="entry-dialog" class="entry-dialog">
+      <form id="entry-form">
+        <div class="dialog-heading">
+          <div><p class="eyebrow">SAVE THIS LITTLE THING</p><h2>Make a keepsake</h2></div>
+          <button id="close-dialog" class="close-button" type="button" aria-label="Close">×</button>
+        </div>
+        <label for="entry-kind">What are we saving?</label>
+        <select id="entry-kind" name="kind">
+          <option value="memory">A memory</option>
+          <option value="letter">A little letter</option>
+          <option value="checkin">A check-in</option>
+          <option value="date">A date idea</option>
+        </select>
+        <label for="entry-title">Give it a name</label>
+        <input id="entry-title" name="title" maxlength="100" placeholder="That perfect rainy afternoon" required>
+        <label for="entry-body">The little details</label>
+        <textarea id="entry-body" name="body" maxlength="4000" rows="5" placeholder="Write it down so we can come back to it..." required></textarea>
+        <div id="photo-field">
+          <label for="entry-photos">Add a few photos <span class="optional">(optional, up to 3)</span></label>
+          <input id="entry-photos" name="photos" type="file" accept="image/jpeg,image/png,image/webp" multiple>
+          <p class="photo-hint">JPEG, PNG, or WebP · up to 2 MB each · stored privately with this keepsake</p>
+        </div>
+        <div id="unlock-field" hidden>
+          <label for="unlock-at">Keep this letter tucked away until <span class="optional">(optional)</span></label>
+          <input id="unlock-at" name="unlockAt" type="datetime-local">
+        </div>
+        <p id="entry-error" class="form-error" role="alert"></p>
+        <div class="dialog-actions">
+          <button id="cancel-entry" class="button button-outline" type="button">Maybe later</button>
+          <button class="button button-dark" type="submit">Save our keepsake <span aria-hidden="true">♥</span></button>
+        </div>
+      </form>
+    </dialog>
+  </body>
+</html>
