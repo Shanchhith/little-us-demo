@@ -152,7 +152,6 @@ input:focus, textarea:focus, select:focus { border-color: #b77970; box-shadow: 0
   .card-photos img { height: 115px; }
 }
 
-.demo-banner { padding: 8px 14px; color: #fff; background: #b77970; text-align: center; font-size: 11px; }
 .fun-section { padding: 36px 0 20px; border-top: 1px solid var(--line); }
 .fun-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 15px; margin-top: 20px; }
 .fun-card { display: flex; flex-direction: column; gap: 10px; padding: 20px; background: #fffdfa; border: 1px solid #ebe5dc; border-radius: 10px; }
@@ -169,3 +168,6 @@ input:focus, textarea:focus, select:focus { border-color: #b77970; box-shadow: 0
 @keyframes pop { from { opacity: 0; transform: translateY(6px) scale(.97); } to { opacity: 1; transform: none; } }
 @media (max-width: 700px) { .fun-grid { grid-template-columns: 1fr; } }
 @media (prefers-reduced-motion: reduce) { .fun-output.pop { animation: none; } }
+
+.gallery-card .delete-button { display: none; }
+.gallery-card-details { grid-template-columns: 1fr; }

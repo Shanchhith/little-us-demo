@@ -8,13 +8,12 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="data:,">
     <meta name="robots" content="noindex">
-    <script src="mock.js"></script>
+    <script src="store.js"></script>
     <script src="app.js" defer></script>
     <script src="fun.js" defer></script>
   </head>
   <body>
-    <div class="demo-banner">Design preview only — sample content and placeholder images. Nothing you add here is saved or private.</div>
-    <main id="login-view" class="login-view">
+    <main id="login-view" class="login-view" hidden>
       <section class="login-card">
         <div class="brand-mark" aria-hidden="true">u<span>+</span></div>
         <p class="eyebrow">A LITTLE PLACE FOR TWO</p>
@@ -35,8 +34,8 @@
       <header class="topbar">
         <a class="wordmark" href="/" aria-label="little us home"><span class="brand-mark small">u<span>+</span></span><span>little us</span></a>
         <div class="topbar-right">
-          <span class="private-badge"><span aria-hidden="true">●</span> our private space</span>
-          <button id="logout-button" class="text-button" type="button">Lock up <span aria-hidden="true">↗</span></button>
+          <span class="private-badge"><span aria-hidden="true">●</span> just for us</span>
+          <button id="logout-button" class="text-button" type="button" hidden>Lock up <span aria-hidden="true">↗</span></button>
         </div>
       </header>
 
@@ -109,11 +108,11 @@
 
         <section class="gallery-section" aria-labelledby="gallery-heading">
           <div class="section-heading">
-            <div><p class="eyebrow">OUR PRIVATE PHOTO FOLDER</p><h2 id="gallery-heading">The photo nook</h2></div>
+            <div><p class="eyebrow">OUR PHOTO FOLDER</p><h2 id="gallery-heading">The photo nook</h2></div>
             <span id="photo-count" class="entry-count"></span>
           </div>
-          <p class="gallery-description">A safe little shelf for every photo you want to share with me.</p>
-          <form id="gallery-upload-form" class="gallery-upload">
+          <p class="gallery-description">Every photo we love, all in one place.</p>
+          <form id="gallery-upload-form" class="gallery-upload" hidden>
             <label class="upload-label" for="gallery-files">Choose photos from your device</label>
             <div class="upload-controls">
               <input id="gallery-files" type="file" accept="image/jpeg,image/png,image/webp" multiple>
@@ -124,9 +123,9 @@
             <p id="gallery-status" class="gallery-status" role="status"></p>
           </form>
           <div id="gallery-list" class="gallery-grid" aria-live="polite"></div>
-          <div id="gallery-empty" class="gallery-empty">
+          <div id="gallery-empty" class="gallery-empty" hidden>
             <span aria-hidden="true">♡</span>
-            <p>Our private photo folder is ready for its first memory.</p>
+            <p>Our photo folder is ready for its first memory.</p>
           </div>
         </section>
       </main>
@@ -150,7 +149,7 @@
         <input id="entry-title" name="title" maxlength="100" placeholder="That perfect rainy afternoon" required>
         <label for="entry-body">The little details</label>
         <textarea id="entry-body" name="body" maxlength="4000" rows="5" placeholder="Write it down so we can come back to it..." required></textarea>
-        <div id="photo-field">
+        <div id="photo-field" hidden>
           <label for="entry-photos">Add a few photos <span class="optional">(optional, up to 3)</span></label>
           <input id="entry-photos" name="photos" type="file" accept="image/jpeg,image/png,image/webp" multiple>
           <p class="photo-hint">JPEG, PNG, or WebP · up to 2 MB each · stored privately with this keepsake</p>
