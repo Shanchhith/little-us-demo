@@ -153,3 +153,19 @@ input:focus, textarea:focus, select:focus { border-color: #b77970; box-shadow: 0
 }
 
 .demo-banner { padding: 8px 14px; color: #fff; background: #b77970; text-align: center; font-size: 11px; }
+.fun-section { padding: 36px 0 20px; border-top: 1px solid var(--line); }
+.fun-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 15px; margin-top: 20px; }
+.fun-card { display: flex; flex-direction: column; gap: 10px; padding: 20px; background: #fffdfa; border: 1px solid #ebe5dc; border-radius: 10px; }
+.fun-card:nth-child(1) { background: #fffdf5; }
+.fun-card:nth-child(2) { background: #faf8fc; }
+.fun-card:nth-child(3) { background: #fff9f6; }
+.fun-card h3 { margin: 0; font: 600 18px "Playfair Display", Georgia, serif; }
+.fun-card p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.6; }
+.fun-card form { display: grid; gap: 9px; }
+.fun-card .button { align-self: start; }
+.fun-output { min-height: 70px; padding: 12px; color: #4a4540 !important; background: #fff; border: 1px dashed #ded6cb; border-radius: 8px; font-size: 13px !important; }
+.fun-output:empty { display: none; }
+.fun-output.pop { animation: pop .35s ease; }
+@keyframes pop { from { opacity: 0; transform: translateY(6px) scale(.97); } to { opacity: 1; transform: none; } }
+@media (max-width: 700px) { .fun-grid { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { .fun-output.pop { animation: none; } }

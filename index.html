@@ -10,6 +10,7 @@
     <meta name="robots" content="noindex">
     <script src="mock.js"></script>
     <script src="app.js" defer></script>
+    <script src="fun.js" defer></script>
   </head>
   <body>
     <div class="demo-banner">Design preview only — sample content and placeholder images. Nothing you add here is saved or private.</div>
@@ -74,6 +75,35 @@
             <h3>Our shelf is waiting.</h3>
             <p>Save the first little thing you want to remember.</p>
             <button class="button button-outline" type="button" data-open-entry>Make a keepsake</button>
+          </div>
+        </section>
+
+        <section class="fun-section" aria-labelledby="fun-heading">
+          <div class="section-heading">
+            <div><p class="eyebrow">OUR SILLY CORNER</p><h2 id="fun-heading">Serious business, mostly nonsense</h2></div>
+          </div>
+          <div class="fun-grid">
+            <article class="fun-card">
+              <h3>Fortune cookie</h3>
+              <p>Crack one open for today’s highly accurate prediction.</p>
+              <button id="fortune-button" class="button button-dark" type="button">Crack one open <span aria-hidden="true">🥠</span></button>
+              <p id="fortune-output" class="fun-output" aria-live="polite"></p>
+            </article>
+            <article class="fun-card">
+              <h3>Couple court</h3>
+              <p>Bring any petty case. The judge is extremely unqualified.</p>
+              <form id="court-form">
+                <input id="court-case" type="text" maxlength="80" placeholder="Who took the last fry?" aria-label="Describe the case">
+                <button class="button button-dark" type="submit">Hear the verdict <span aria-hidden="true">⚖️</span></button>
+              </form>
+              <p id="court-output" class="fun-output" aria-live="polite"></p>
+            </article>
+            <article class="fun-card">
+              <h3>Coupon printer</h3>
+              <p>Redeemable for absolutely ridiculous favours.</p>
+              <button id="coupon-button" class="button button-dark" type="button">Print a coupon <span aria-hidden="true">🎟️</span></button>
+              <p id="coupon-output" class="fun-output" aria-live="polite"></p>
+            </article>
           </div>
         </section>
 
